@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	wheatherData := services.GetWeatherData("curitiba")
+	wheatherData := services.WheatherDataFormating("0")
 
 	fmt.Printf("Dados: %+v\n", wheatherData)
 }
