@@ -7,7 +7,9 @@ import (
 )
 
 func main() {
-	wheatherData := services.WheatherDataFormating("0")
+	wheatherData := services.WeatherDataFormating("curitiba")
+	locData := services.MapDataFormating("curitiba")
 
 	fmt.Printf("Dados: %+v\n", wheatherData)
+	fmt.Printf("Mapa: %+v\n", locData)
 }

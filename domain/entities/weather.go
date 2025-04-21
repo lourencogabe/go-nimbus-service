@@ -1,6 +1,6 @@
 package domain
 
 type Weather struct {
-	temperatureCelsius string `json:"temperatureCelsius"`
-	humidity           string `json:"humidity"`
+	TempC    string `json:"temperatureCelsius"`
+	Humidity string `json:"humidity"`
 }

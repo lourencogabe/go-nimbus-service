@@ -29,6 +29,17 @@ func GetWeatherData(city string) dto.GetWeather {
 	return wheather
 }
 
-func wheatherDataFormating(wheatherDTO dto.GetWeather) domain.Weather {
-	var wheather domain.Weather
+func WeatherDataFormating(city string) domain.Weather {
+	resp := GetWeatherData(city)
+
+	formattedWeather := domain.Weather{}
+
+	if len(resp.CurrentCondition) > 0 {
+		formattedWeather.TempC = resp.CurrentCondition[0].TempC
+		formattedWeather.Humidity = resp.CurrentCondition[0].Humidity
+	} else {
+		fmt.Errorf("Dados de clima não encontrados para %s", city)
+	}
+
+	return formattedWeather
 }
