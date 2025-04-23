@@ -1,18 +1,12 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/lourencogabe/gonimbus/application/usecases"
+	"github.com/gin-gonic/gin"
+	infra "github.com/lourencogabe/gonimbus/infra/handlers"
 )
 
 func main() {
-	data, err := usecases.GetWeatherData("curitiba")
-	if err != nil {
-		fmt.Errorf("Erro ao executar: %w", err)
-	}
-
-	//test := external.FetchWeatherData("curitiba")
-
-	fmt.Printf("Dados: %+v\n", data)
+	router := gin.Default()
+	infra.GetWeathersRoute(router)
+	router.Run("localhost:8080")
 }
